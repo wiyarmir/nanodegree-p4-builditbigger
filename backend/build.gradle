@@ -12,6 +12,8 @@ buildscript {
 
 repositories {
     jcenter();
+    mavenCentral()
+    mavenLocal()
 }
 
 apply plugin: 'java'
@@ -26,6 +28,7 @@ dependencies {
     compile 'com.google.appengine:appengine-endpoints:1.9.18'
     compile 'com.google.appengine:appengine-endpoints-deps:1.9.18'
     compile 'javax.servlet:servlet-api:2.5'
+    compile project(path: ':libjokes')
 }
 
 appengine {

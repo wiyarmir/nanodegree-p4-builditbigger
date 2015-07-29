@@ -1,4 +1,8 @@
 apply plugin: 'java'
+apply plugin: 'maven'
+
+version = '0.0.1-SNAPSHOT'
+group = 'es.guillermoorellana.jokes'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

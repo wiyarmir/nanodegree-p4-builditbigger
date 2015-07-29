@@ -12,19 +12,30 @@ import com.google.api.server.spi.config.ApiNamespace;
 
 import javax.inject.Named;
 
+import es.guillermoorellana.jokes.Joker;
+
 /**
  * An endpoint class we are exposing
  */
-@Api(name = "myApi", version = "v1", namespace = @ApiNamespace(ownerDomain = "backend.jokes.guillermoorellana.es", ownerName = "backend.jokes.guillermoorellana.es", packagePath = ""))
-public class MyEndpoint {
+@Api(
+        name = "jokes",
+        version = "v1",
+        namespace = @ApiNamespace(
+                ownerDomain = "backend.jokes.guillermoorellana.es",
+                ownerName = "backend.jokes.guillermoorellana.es",
+                packagePath = ""
+        )
+)
+public class JokesEndpoint {
     
     /**
-     * A simple endpoint method that takes a name and says Hi back
+     * A simple endpoint method that returns a joke
      */
-    @ApiMethod(name = "sayHi")
-    public MyBean sayHi(@Named("name") String name) {
+    @ApiMethod(name = "getJoke")
+    public MyBean getJoke() {
         MyBean response = new MyBean();
-        response.setData("Hi, " + name);
+        Joker mJoker = new Joker();
+        response.setData(mJoker.getJoke());
         
         return response;
     }

@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger;
+package es.guillermoorellana.builditbigger.builditbigger;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
