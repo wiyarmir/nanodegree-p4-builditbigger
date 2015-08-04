@@ -4,15 +4,17 @@
    https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/master/HelloEndpoints
 */
 
-package es.guillermoorellana.jokes.backend;
+package es.guillermoorellana.jokes.backend.apis;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 
-import javax.inject.Named;
+import java.util.logging.Logger;
 
 import es.guillermoorellana.jokes.Joker;
+import es.guillermoorellana.jokes.backend.Constants;
+import es.guillermoorellana.jokes.backend.models.Joke;
 
 /**
  * An endpoint class we are exposing
@@ -21,21 +23,22 @@ import es.guillermoorellana.jokes.Joker;
         name = "jokes",
         version = "v1",
         namespace = @ApiNamespace(
-                ownerDomain = "backend.jokes.guillermoorellana.es",
-                ownerName = "backend.jokes.guillermoorellana.es",
-                packagePath = ""
+                ownerDomain = Constants.API_OWNER,
+                ownerName = Constants.API_OWNER,
+                packagePath = Constants.API_PACKAGE_PATH
         )
 )
 public class JokesEndpoint {
-    
+    private static final Logger LOG = Logger.getLogger(JokesEndpoint.class.getName());
+
     /**
      * A simple endpoint method that returns a joke
      */
     @ApiMethod(name = "getJoke")
-    public MyBean getJoke() {
-        MyBean response = new MyBean();
+    public final Joke getJoke() {
+        Joke response = new Joke();
         Joker mJoker = new Joker();
-        response.setData(mJoker.getJoke());
+        response.setText(mJoker.getJoke());
         
         return response;
     }

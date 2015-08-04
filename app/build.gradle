@@ -1,11 +1,14 @@
 apply plugin: 'com.android.application'
 
+def BANNER_AD_UNIT = '"' + JokesBannerAdUnitProp + '"' ?: '"Define banner Ad unit ID"';
+def INTER_AD_UNIT = '"' + JokesInterAdUnitProp + '"' ?: '"Define intersitial Ad unit ID"';
+
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "es.guillermoorellana.builditbigger.builditbigger"
+        applicationId "es.guillermoorellana.builditbigger.app"
         minSdkVersion 10
         targetSdkVersion 22
         versionCode 1
@@ -16,14 +19,18 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        all { type ->
+            type.buildConfigField 'String', 'BANNER_AD_UNIT', BANNER_AD_UNIT
+            type.buildConfigField 'String', 'INTER_AD_UNIT', INTER_AD_UNIT
+        }
     }
     productFlavors {
         free {
-            applicationId 'es.guillermoorellana.builditbigger.free'
+            applicationId 'es.guillermoorellana.builditbigger.app.free'
         }
 
         pro {
-            applicationId 'es.guillermoorellana.builditbigger.pro'
+            applicationId 'es.guillermoorellana.builditbigger.app.pro'
         }
     }
 }
@@ -31,8 +38,12 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // Added for AdMob
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.google.android.gms:play-services:7.3.0'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.google.android.gms:play-services-ads:7.5.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.squareup:otto:1.3.8'
     compile project(path: ':backend', configuration: 'android-endpoints')
     compile project(path: ':jokedroid')
 }

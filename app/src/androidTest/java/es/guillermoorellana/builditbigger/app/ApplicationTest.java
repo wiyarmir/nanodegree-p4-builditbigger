@@ -1,4 +1,4 @@
-package es.guillermoorellana.builditbigger.builditbigger;
+package es.guillermoorellana.builditbigger.app;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
