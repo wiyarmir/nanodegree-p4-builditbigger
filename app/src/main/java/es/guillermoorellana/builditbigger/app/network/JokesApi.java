@@ -10,7 +10,7 @@ import retrofit.android.MainThreadExecutor;
  * Created on 04/08/2015.
  */
 public class JokesApi {
-    public static final String JOKES_API_ENDPOINT = "https://something.appspot.com/v1";
+    public static final String JOKES_API_ENDPOINT = "https://builditbigger-1021.appspot.com/_ah/api/jokes/v1";
     private final JokesService mJokesService;
 
     public JokesApi(Executor httpExecutor, Executor callbackExecutor) {

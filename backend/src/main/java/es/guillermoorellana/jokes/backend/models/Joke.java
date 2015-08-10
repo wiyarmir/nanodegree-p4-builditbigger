@@ -1,9 +1,11 @@
 package es.guillermoorellana.jokes.backend.models;
 
+import java.io.Serializable;
+
 /**
  * The object model for the data we are sending through endpoints
  */
-public class Joke {
+public class Joke implements Serializable {
     
     private String text;
     

@@ -7,6 +7,6 @@ import retrofit.http.GET;
  * Created on 04/08/2015.
  */
 public interface JokesService {
-    @GET("/getJoke")
+    @GET("/joke")
     Joke getJoke();
 }

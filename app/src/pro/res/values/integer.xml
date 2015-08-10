@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Placeholder for Manifest to be OK with pro version not having GPS-->
+    <integer name="google_play_services_version">0</integer>
+</resources>
