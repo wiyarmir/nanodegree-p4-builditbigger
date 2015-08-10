@@ -8,6 +8,10 @@ import android.view.View;
  */
 public interface FlavorMethodsInterface {
     void setupAds(View view);
+
     void prepareIntersitial(Context context);
+
     void showIntersitial();
+
+    void requestNewInterstitial();
 }

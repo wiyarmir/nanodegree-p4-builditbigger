@@ -2,9 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'launcher-label'
 
 
-def BANNER_AD_UNIT = '"' + JokesBannerAdUnitProp + '"' ?: '"Define banner Ad unit ID"';
-def INTER_AD_UNIT = '"' + JokesInterAdUnitProp + '"' ?: '"Define intersitial Ad unit ID"';
-
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
@@ -19,8 +16,6 @@ android {
     }
     buildTypes {
         all { type ->
-            type.buildConfigField 'String', 'BANNER_AD_UNIT', BANNER_AD_UNIT
-            type.buildConfigField 'String', 'INTER_AD_UNIT', INTER_AD_UNIT
             debuggable true
         }
         release {
@@ -46,6 +41,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
+    }
+    lintOptions{
+        abortOnError false
     }
 }
 

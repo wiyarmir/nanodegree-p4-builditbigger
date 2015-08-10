@@ -17,3 +17,11 @@ allprojects {
         jcenter()
     }
 }
+
+task endToEnd() {
+    dependsOn 'backend:build'
+    dependsOn 'app:build'
+    dependsOn 'backend:appengineStart'1
+    dependsOn 'app:test'
+    dependsOn 'backend:appengineStop'
+}

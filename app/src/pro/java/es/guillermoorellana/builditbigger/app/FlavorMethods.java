@@ -21,4 +21,9 @@ public class FlavorMethods implements FlavorMethodsInterface {
     public void showIntersitial() {
         AppBus.getInstance().post("START");
     }
+
+    @Override
+    public void requestNewInterstitial() {
+
+    }
 }
