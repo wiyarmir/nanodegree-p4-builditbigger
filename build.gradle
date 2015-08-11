@@ -19,9 +19,12 @@ allprojects {
 }
 
 task endToEnd() {
+    group = 'verification'
+    description = 'run the end to end verifications'
+
     dependsOn 'backend:build'
     dependsOn 'app:build'
-    dependsOn 'backend:appengineStart'1
+    dependsOn 'backend:appengineStartBackend'
     dependsOn 'app:test'
-    dependsOn 'backend:appengineStop'
+    dependsOn 'backend:appengineStopBackend'
 }
