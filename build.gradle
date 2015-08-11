@@ -22,9 +22,8 @@ task endToEnd() {
     group = 'verification'
     description = 'run the end to end verifications'
 
-    dependsOn 'backend:build'
-    dependsOn 'app:build'
-    dependsOn 'backend:appengineStartBackend'
-    dependsOn 'app:test'
-    dependsOn 'backend:appengineStopBackend'
+    dependsOn ':backend:appengineRun'
+    mustRunAfter ':backend:appengineRun'
+    dependsOn ':app:connectedAndroidTest'
+    finalizedBy ':backend:appengineStop'
 }
