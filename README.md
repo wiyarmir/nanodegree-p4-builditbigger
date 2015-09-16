@@ -1,4 +1,13 @@
-# Gradle for Android and Java Final Project
+# nanodegree-p4-builditbigger
+Build it Bigger project for the Android Nanodegree by Udacity
+
+# Author
+[Guillermo Orellana Ruiz](https://profiles.udacity.com/u/guillermoorellana)
+
+# Screenshots
+
+Coming...
+
 
 In this project, you will create an app with multiple flavors that uses
 multiple libraries and Google Could Endpoints. The finished app will consist
